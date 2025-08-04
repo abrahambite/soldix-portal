@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLDIX - Portal de Cliente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --color-principal: #FF4500; --negro-texto: #212121; --gris-fondo: #F5F5F5; --blanco-puro: #FFFFFF; --fuente-titulos: 'Montserrat', sans-serif; --fuente-cuerpo: 'Roboto', sans-serif; }
+        body { font-family: var(--fuente-cuerpo); background-color: var(--gris-fondo); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+        .form-container { background: var(--blanco-puro); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 600px; width: 100%; }
+        .form-header { text-align: center; margin-bottom: 30px; }
+        .form-header h1 { font-family: var(--fuente-titulos); font-size: 32px; color: var(--color-principal); margin: 0; }
+        .form-header p { color: var(--gris-texto-secundario); font-size: 16px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 14px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #DEDEDE; border-radius: 8px; font-size: 16px; box-sizing: border-box; }
+        .btn-submit { width: 100%; padding: 15px; background-color: var(--color-principal); border: none; border-radius: 8px; color: var(--blanco-puro); font-family: var(--fuente-titulos); font-weight: 700; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease; }
+        .btn-submit:hover { background-color: #E63E00; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>SOLDIX</h1>
+            <p>Portal de Comunicación y Seguimiento</p>
+        </div>
+        <form action="enviar_ticket.php" method="POST">
+            <input type="hidden" name="fuente" value="Cotización SOLDIX Tarjetas">
+            <input type="hidden" name="folio_cotizacion" value="SC-2025-08-002">
+            
+            <div class="form-group">
+                <label for="tipo_solicitud">Tipo de Solicitud</label>
+                <select id="tipo_solicitud" name="tipo_solicitud" required>
+                    <option value="Aceptación de Propuesta">Aceptar Propuesta e Iniciar Pedido</option>
+                    <option value="Pregunta sobre Cotización">Tengo una Pregunta sobre la Cotización</option>
+                    <option value="Solicitud de Seguimiento">Solicitar Llamada de Seguimiento</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+             <div class="form-group">
+                <label for="empresa">Nombre de la Empresa</label>
+                <input type="text" id="empresa" name="empresa" value="Frutería Nenas" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono (Opcional)</label>
+                <input type="tel" id="telefono" name="telefono">
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje (Opcional)</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu pregunta o comentario..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Enviar Solicitud</button>
+        </form>
+    </div>
+</body>
+</html>
